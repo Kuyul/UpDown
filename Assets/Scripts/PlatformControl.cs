@@ -18,12 +18,8 @@ public class PlatformControl : MonoBehaviour {
             var summon = Platforms[Random.Range(0, Platforms.Length)];
             Instantiate(summon, newPos, Quaternion.identity); //Instantiate platform at newPos
             offset += summon.GetComponent<Platform>().GetPlatformLength();
-            offset += 150;
+            offset += 50;
         }
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
