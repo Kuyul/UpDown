@@ -30,14 +30,14 @@ public class BallController : MonoBehaviour {
 
     public void GoUp()
     {
-        var newPos = new Vector3(0, 4, 0);
+        var newPos = new Vector3(0, 5, 0);
         var step = speedUpDown * Time.deltaTime;
         transform.localPosition = Vector3.MoveTowards(transform.localPosition, newPos, step);
     }
 
     public void GoDown()
     {
-        var newPos = new Vector3(0, -4, 0);
+        var newPos = new Vector3(0, -5, 0);
         var step = speedUpDown * Time.deltaTime;
         transform.localPosition = Vector3.MoveTowards(transform.localPosition, newPos, step);
     }
@@ -53,11 +53,6 @@ public class BallController : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.tag == "Platform")
-        {
-           rb.velocity = new Vector3(0, 0);
-        }
-
         if (collision.collider.tag == "Obstacle")
         {
             GameControl.Instance.GameOver();
