@@ -42,15 +42,6 @@ public class BallController : MonoBehaviour {
         transform.localPosition = Vector3.MoveTowards(transform.localPosition, newPos, step);
     }
 
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "NextPattern")
-        {
-            var platform = other.transform.parent.gameObject;
-            GameControl.Instance.SpawnNextPlatform(platform);
-        }
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.tag == "Obstacle")

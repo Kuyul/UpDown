@@ -26,11 +26,6 @@ public class GameControl : MonoBehaviour {
         BallController.UpDown();
     }
 
-    //Called from Ballcontroller to spawn next pattern
-    public void SpawnNextPlatform(GameObject pattern){
-        PlatformControl.SpawnNextPlatform(pattern);
-    }
-
     //Called from Ballcontroller to end game when obstacle is touched
     public void GameOver()
     {

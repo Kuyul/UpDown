@@ -5,19 +5,14 @@ using UnityEngine;
 public class Platform : MonoBehaviour {
 
     //Declare public GameObjects
-    public GameObject Upper;
-    public GameObject Below;
+    public Transform Start;
+    public Transform End;
 
     //Declare private GameObjects
     private float PlatformLength;
 
-	// Use this for initialization
-	void Start () {
-        PlatformLength = Upper.GetComponent<Transform>().localScale.z;
-	}
-	
-	
     public float GetPlatformLength(){
-        return PlatformLength;
+        var diff = End.position.z - Start.position.z;
+        return diff;
     }
 }
