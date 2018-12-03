@@ -5,15 +5,15 @@ using UnityEngine;
 public class BallController : MonoBehaviour {
 
     //Declare public variables
-    public float speed;
+    public float speedForward;
+    public float speedUpDown;
 
     //Declare private variables
     private Rigidbody rb;
 
 	// Use this for initialization
 	void Start () {
-        rb = GetComponent<Rigidbody>();
-        rb.velocity = Vector3.forward * speed;
+        rb = GetComponent<Rigidbody>();      
 	}
 
 	public void OnTriggerEnter(Collider other)
@@ -23,4 +23,22 @@ public class BallController : MonoBehaviour {
             GameControl.Instance.SpawnNextPlatform(platform);
         }
 	}
+
+    public void GoUp()
+    {
+        rb.velocity = new Vector3(0, speedUpDown, speedForward);
+    }
+
+    public void GoDown()
+    {
+        rb.velocity = new Vector3(0, -speedUpDown, speedForward);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.tag == "Platform")
+        {
+            rb.velocity = new Vector3(0, 0, speedForward);
+        }
+    }
 }
