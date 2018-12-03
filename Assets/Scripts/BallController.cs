@@ -5,7 +5,6 @@ using UnityEngine;
 public class BallController : MonoBehaviour {
 
     //Declare public variables
-    public float speedForward;
     public float speedUpDown;
 
     //Declare private variables
@@ -26,19 +25,19 @@ public class BallController : MonoBehaviour {
 
     public void GoUp()
     {
-        rb.velocity = new Vector3(0, speedUpDown, speedForward);
+        rb.velocity = new Vector3(0, speedUpDown);
     }
 
     public void GoDown()
     {
-        rb.velocity = new Vector3(0, -speedUpDown, speedForward);
+        rb.velocity = new Vector3(0, -speedUpDown);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.tag == "Platform")
         {
-            rb.velocity = new Vector3(0, 0, speedForward);
+           rb.velocity = new Vector3(0, 0);
         }
     }
 }
