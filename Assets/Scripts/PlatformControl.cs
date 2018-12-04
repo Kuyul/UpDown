@@ -7,7 +7,8 @@ public class PlatformControl : MonoBehaviour {
     public static PlatformControl Instance;
 
     //Declare Public GameObjects
-    public GameObject[] Platforms;
+    public GameObject[] PlatformsBottom;
+    public GameObject[] PlatformsTop;
     public int NumPlatforms = 4;
     public float WidthOffset = 50f;
     public float HeightOffset = 50f;
@@ -33,14 +34,20 @@ public class PlatformControl : MonoBehaviour {
 		for(int i = 0; i < NumPlatforms; i++)
         {
             var newPos = new Vector3(0, height, offset);
-            var summon = Platforms[Random.Range(0, Platforms.Length)];
+            var upDownVal = upOrDown[Random.Range(0, upOrDown.Length)]; //is the new platform going to be above the current one? or below?
+            GameObject summon;
+            if (upDownVal == -1){
+                summon = PlatformsTop[Random.Range(0, PlatformsTop.Length)];
+            }else{
+                summon = PlatformsBottom[Random.Range(0, PlatformsBottom.Length)];
+            }
             var platform = Instantiate(summon, newPos, Quaternion.identity); //Instantiate platform at newPos
             GeneratedPlatforms.Add(platform);
             offset += summon.GetComponent<Platform>().GetPlatformLength();
             offset += WidthOffset;
 
             //Up or Down
-            height += upOrDown[Random.Range(0,upOrDown.Length)] * HeightOffset;
+            height += upDownVal * HeightOffset;
         }
 	}
 	

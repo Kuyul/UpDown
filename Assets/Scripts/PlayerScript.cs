@@ -25,6 +25,7 @@ public class PlayerScript : MonoBehaviour {
         if (Moving)
         {
             var step = Time.deltaTime * heightChangeSpeed;
+            //NewPos is calculated from MovePlayer where it retreives the appropriate balues from Platformcontrol
             transform.position = Vector3.MoveTowards(transform.position, NewPos, step);
             if(transform.position == NewPos){
                 Moving = false;
@@ -44,7 +45,6 @@ public class PlayerScript : MonoBehaviour {
             rb.velocity = new Vector3(0, 0, 0);
         }
     }
-
 
     private void OnTriggerEnter(Collider other)
     {
