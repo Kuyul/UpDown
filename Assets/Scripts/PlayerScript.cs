@@ -24,10 +24,12 @@ public class PlayerScript : MonoBehaviour {
 	{
         if (Moving)
         {
+            GameControl.Instance.pePlatformJump.SetActive(true);
             var step = Time.deltaTime * heightChangeSpeed;
-            //NewPos is calculated from MovePlayer where it retreives the appropriate balues from Platformcontrol
+            //NewPos is calculated from MovePlayer where it retreives the appropriate values from Platformcontrol
             transform.position = Vector3.MoveTowards(transform.position, NewPos, step);
             if(transform.position == NewPos){
+                GameControl.Instance.pePlatformJump.SetActive(false);
                 Moving = false;
                 rb.velocity = new Vector3(0, 0, speed);
             }
@@ -38,7 +40,7 @@ public class PlayerScript : MonoBehaviour {
 	public void MovePlayer(){
         if (!Moving)
         {
-            var z = PlatformControl.Instance.WidthOffset;
+            var z = PlatformControl.Instance.LengthOffset;
             var y = PlatformControl.Instance.GetNextPlatformY();
             NewPos = new Vector3(transform.position.x, y, transform.position.z + z);
             Moving = true;

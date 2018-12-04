@@ -9,9 +9,9 @@ public class PlatformControl : MonoBehaviour {
     //Declare Public GameObjects
     public GameObject[] PlatformsBottom;
     public GameObject[] PlatformsTop;
-    public int NumPlatforms = 4;
-    public float WidthOffset = 50f;
-    public float HeightOffset = 50f;
+    public int NumPlatforms;
+    public float LengthOffset;
+    public float HeightOffset;
 
     //Declare private variables
     private int platformNumber = 0;
@@ -44,7 +44,7 @@ public class PlatformControl : MonoBehaviour {
             var platform = Instantiate(summon, newPos, Quaternion.identity); //Instantiate platform at newPos
             GeneratedPlatforms.Add(platform);
             offset += summon.GetComponent<Platform>().GetPlatformLength();
-            offset += WidthOffset;
+            offset += LengthOffset;
 
             //Up or Down
             height += upDownVal * HeightOffset;

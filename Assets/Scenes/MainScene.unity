@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -334,7 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 519b8682ca7a04c379e6c66a47c853bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedUpDown: 60
+  speedUpDown: 50
   Player: {fileID: 942371728}
 --- !u!1 &534669902
 GameObject:
@@ -466,8 +466,8 @@ GameObject:
   m_Component:
   - component: {fileID: 942371729}
   - component: {fileID: 942371730}
-  - component: {fileID: 942371728}
   - component: {fileID: 942371731}
+  - component: {fileID: 942371728}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -486,8 +486,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 914077e39eba5624f84ec3ff46ad0128, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
-  heightChangeSpeed: 30
+  speed: 30
+  heightChangeSpeed: 40
 --- !u!4 &942371729
 Transform:
   m_ObjectHideFlags: 0
@@ -563,8 +563,8 @@ MonoBehaviour:
   PlatformsTop:
   - {fileID: 1903733642407168, guid: c2771f4a610bc4f918b73794e220fbed, type: 2}
   NumPlatforms: 4
-  WidthOffset: 50
-  HeightOffset: 50
+  LengthOffset: 30
+  HeightOffset: 20
 --- !u!4 &1165777494
 Transform:
   m_ObjectHideFlags: 0
@@ -612,6 +612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlatformControl: {fileID: 1165777493}
   BallController: {fileID: 431128212}
+  pePlatformJump: {fileID: 0}
 --- !u!4 &1636973396
 Transform:
   m_ObjectHideFlags: 0
