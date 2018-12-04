@@ -6,6 +6,7 @@ public class BallController : MonoBehaviour {
 
     //Declare public variables
     public float speedUpDown;
+    public PlayerScript Player;
 
     //Declare private variables
     private Rigidbody rb;
@@ -50,7 +51,7 @@ public class BallController : MonoBehaviour {
         }
     }
 
-    public void UpDown()
+	public void UpDown()
     {
         Up = !Up;
     }
