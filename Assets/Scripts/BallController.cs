@@ -55,4 +55,9 @@ public class BallController : MonoBehaviour {
     {
         Up = !Up;
     }
+
+	public void SetUp(bool val)
+	{
+        Up = val;
+	}
 }

@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour {
 
     //Declare public variables
+    public GameObject Touch;
+    public BallController Ball;
     public float speed = 20f;
     public float heightChangeSpeed = 30f;
 
@@ -30,6 +32,7 @@ public class PlayerScript : MonoBehaviour {
             if(transform.position == NewPos){
                 Moving = false;
                 rb.velocity = new Vector3(0, 0, speed);
+                Touch.SetActive(true);
             }
         }
 	}
@@ -43,6 +46,14 @@ public class PlayerScript : MonoBehaviour {
             NewPos = new Vector3(transform.position.x, y, transform.position.z + z);
             Moving = true;
             rb.velocity = new Vector3(0, 0, 0);
+            //if new position is lower, then activate fall and vice versa.
+            //We don't want the user to be able to click up down while in air, so we'll disable touch
+            Touch.SetActive(false);
+            if(transform.position.y >= NewPos.y){
+                Ball.SetUp(false); //Ball fall down
+            }else{
+                Ball.SetUp(true); //Ball rise up
+            }
         }
     }
 
