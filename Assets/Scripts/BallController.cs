@@ -9,13 +9,8 @@ public class BallController : MonoBehaviour {
     public PlayerScript Player;
 
     //Declare private variables
-    private Rigidbody rb;
-    private bool Up = false;
 
-	// Use this for initialization
-	void Start () {
-        rb = GetComponent<Rigidbody>();      
-	}
+    private bool Up = false;
 
     private void Update()
     {
