@@ -21,7 +21,7 @@ public class CameraScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
-        var ballPosZ = BallToFollow.position.z;
+                var ballPosZ = BallToFollow.position.z;
         
         if(BC.GetIsTransitioning()){
             if(BC.PassedPreviousThreshold()){

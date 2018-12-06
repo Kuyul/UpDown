@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -326,8 +326,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedUpDown: 50
-  speed: 60
-  heightChangeSpeed: 10
+  speed: 45
+  heightChangeSpeed: 20
   Touch: {fileID: 1637335638}
 --- !u!1 &534669902
 GameObject:
@@ -595,12 +595,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlatformsBottom:
-  - {fileID: 1223336643195716, guid: 60f9efa2ff4444ddfa572886427ad38d, type: 2}
+  - {fileID: 1992159527251000, guid: 506a6b7994d7f4e3d871f8da0a752440, type: 2}
+  - {fileID: 1396664288816230, guid: 939773da410344bccba26528e1089067, type: 2}
+  - {fileID: 1214462108922610, guid: 7cd765c2b728a467aac98d296fcbcca7, type: 2}
   PlatformsTop:
-  - {fileID: 1903733642407168, guid: c2771f4a610bc4f918b73794e220fbed, type: 2}
+  - {fileID: 1180428007359216, guid: 573bfd3e86aa24a35b929d0762622621, type: 2}
+  - {fileID: 1834321053351368, guid: feb052193167147e5b1533b3c8839da0, type: 2}
+  - {fileID: 1702433412699436, guid: fed82d1eb6dbb4a80951b1597ecd063b, type: 2}
   NumPlatforms: 4
-  LengthOffset: 10
-  HeightOffset: 5
+  LengthOffset: 20
+  HeightOffset: 10
 --- !u!4 &1165777494
 Transform:
   m_ObjectHideFlags: 0
