@@ -115,7 +115,7 @@ public class BallController : MonoBehaviour {
     //Moves the player gameobject to different platform position
     public void JumpPlatforms()
     {
-        var z = PlatformControl.Instance.LengthOffset;
+        var z = PlatformControl.Instance.LengthOffset +3f;
         var y = PlatformControl.Instance.NextPlatformBallPos();
         var diff = PlatformControl.Instance.GetYDiff();
         Up = (diff >= 0) ? true : false;
@@ -166,9 +166,16 @@ public class BallController : MonoBehaviour {
 
     public void ReachedTop(){
         Debug.Log("Reached Top");
+        GameObject temp = Instantiate(GameControl.Instance.peAura, transform.position+new Vector3(0,0.45f,0), Quaternion.identity);
+        Destroy(temp, 1f);
+      //  temp.transform.parent = gameObject.transform;
     }
 
     public void ReachedBottom(){
         Debug.Log("Reached Bottom");
+        GameObject temp = Instantiate(GameControl.Instance.peAura, transform.position - new Vector3(0, 0.45f, 0)+ new Vector3(0, 0,0), Quaternion.identity);
+        //temp.transform.parent = gameObject.transform;
+
+        Destroy(temp, 1f);
     }
 }

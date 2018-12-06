@@ -12,6 +12,7 @@ public class GameControl : MonoBehaviour {
     public BallController BallController;
 
     public GameObject pePlatformJump;
+    public GameObject peAura;
 
 	// Use this for initialization
 	void Start () {
