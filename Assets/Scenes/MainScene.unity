@@ -392,7 +392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedUpDown: 50
-  speed: 50
+  speed: 30
   heightChangeSpeed: 10
   Touch: {fileID: 1637335638}
 --- !u!1 &534669902
@@ -518,7 +518,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &741465660
 Transform:
   m_ObjectHideFlags: 0
@@ -715,7 +715,7 @@ MonoBehaviour:
   PlatformControl: {fileID: 1165777493}
   BallController: {fileID: 431128212}
   pePlatformJump: {fileID: 2061966524}
-  peAura: {fileID: 1362598773650046, guid: 6cb9801ee0bff464eb263e35532bf906, type: 2}
+  peAura: {fileID: 1975994274077944, guid: 9f927ff024f7de440a6dd1586ccf5f78, type: 2}
 --- !u!4 &1636973396
 Transform:
   m_ObjectHideFlags: 0

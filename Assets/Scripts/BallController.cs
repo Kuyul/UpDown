@@ -166,16 +166,15 @@ public class BallController : MonoBehaviour {
 
     public void ReachedTop(){
         Debug.Log("Reached Top");
-        GameObject temp = Instantiate(GameControl.Instance.peAura, transform.position+new Vector3(0,0.45f,0), Quaternion.identity);
+        GameObject temp = Instantiate(GameControl.Instance.peAura, transform.position+new Vector3(0,0.45f,0), Quaternion.Euler(-90,0,0));
         Destroy(temp, 1f);
-      //  temp.transform.parent = gameObject.transform;
+        temp.transform.parent = gameObject.transform;
     }
 
     public void ReachedBottom(){
         Debug.Log("Reached Bottom");
-        GameObject temp = Instantiate(GameControl.Instance.peAura, transform.position - new Vector3(0, 0.45f, 0)+ new Vector3(0, 0,0), Quaternion.identity);
-        //temp.transform.parent = gameObject.transform;
-
+        GameObject temp = Instantiate(GameControl.Instance.peAura, transform.position - new Vector3(0, 0.45f, 0)+ new Vector3(0, 0,0), Quaternion.Euler(-90, 0, 0));
+        temp.transform.parent = gameObject.transform;
         Destroy(temp, 1f);
     }
 }
