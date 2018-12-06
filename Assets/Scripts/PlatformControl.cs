@@ -52,8 +52,20 @@ public class PlatformControl : MonoBehaviour {
 	}
 	
     //Called from the ballcontroller class when it reaches the end of a platform
-    public float GetNextPlatformY(){
+    //Calculates the position of where the ball should land coming from the previous platform
+    public float NextPlatformBallPos(){
         platformNumber++;
-        return GeneratedPlatforms[platformNumber].GetComponent<Transform>().position.y;
+        var prevPosY = GeneratedPlatforms[platformNumber-1].GetComponent<Transform>().position.y;
+        var nextPosY = GeneratedPlatforms[platformNumber].GetComponent<Transform>().position.y;
+        var y = nextPosY - prevPosY; //get the difference in height between two platforms
+        nextPosY += (y <= 0) ? -5 : 5;//Add -5 if its below and + 5 if its above
+        return nextPosY;
+    }
+
+    public float GetYDiff(){
+        var prevPosY = GeneratedPlatforms[platformNumber - 1].GetComponent<Transform>().position.y;
+        var nextPosY = GeneratedPlatforms[platformNumber].GetComponent<Transform>().position.y;
+        var y = nextPosY - prevPosY; //get the difference in height between two platforms
+        return y;
     }
 }
