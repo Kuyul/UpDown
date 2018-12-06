@@ -67,6 +67,17 @@ public class BallController : MonoBehaviour {
         var step = speedUpDown * Time.deltaTime;
 
         transform.position = Vector3.MoveTowards(transform.position, newPos, step);
+
+        //Check if ball transition is complete
+        if(transform.position == newPos){
+            //Reached Top if Up = true
+            if(Up){
+                ReachedTop();
+            }else{
+                ReachedBottom();
+            }
+        }
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -83,17 +94,24 @@ public class BallController : MonoBehaviour {
         if (other.tag == "End")
         {
             Debug.Log("End of platform");
-            MovePlayer();
+            JumpPlatforms();
         }
     }
 
 	public void UpDown()
     {
         Up = !Up;
+
+        //Starting jump or fall
+        if(Up){
+            JumpUp();
+        }else{
+            JumpDown();
+        }
     }
 
     //Moves the player gameobject to different platform position
-    public void MovePlayer()
+    public void JumpPlatforms()
     {
         var z = PlatformControl.Instance.LengthOffset;
         var y = PlatformControl.Instance.NextPlatformBallPos();
@@ -108,6 +126,7 @@ public class BallController : MonoBehaviour {
             
     }
 
+    //Enable and disable and set platform transition variables
     private void SetMovingPlatforms(bool move){
         if(move){
             rb.velocity = new Vector3(0, 0, 0);
@@ -118,6 +137,8 @@ public class BallController : MonoBehaviour {
         Touch.SetActive(!move);
     }
 
+    //Called from the camera script
+    //Check if upper or bottom platform is passed during platform move
     public bool PassedPreviousThreshold(){
         if (transform.position.y > PreviousThreshold + 5 || transform.position.y < PreviousThreshold - 5)
         {
@@ -128,7 +149,24 @@ public class BallController : MonoBehaviour {
         };
     }
 
+    //Called from the camera script
     public bool GetMovingPlatforms(){
         return MovingPlatforms;
+    }
+
+    public void JumpUp(){
+        Debug.Log("Jumping Up");
+    }
+
+    public void JumpDown(){
+        Debug.Log("Jumping Down");
+    }
+
+    public void ReachedTop(){
+        Debug.Log("Reached Top");
+    }
+
+    public void ReachedBottom(){
+        Debug.Log("Reached Bottom");
     }
 }
