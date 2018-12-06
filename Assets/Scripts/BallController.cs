@@ -16,7 +16,7 @@ public class BallController : MonoBehaviour {
     private Vector3 NewPos;
     private float Offset = 0f;
     private float PreviousThreshold = 0f;
-    private bool MovingPlatforms = false;
+    private bool IsTransitioning = false;
     private bool UpDownTransitioning = false; //Flag updown transitioning
 
     void Start(){
@@ -27,7 +27,7 @@ public class BallController : MonoBehaviour {
     private void FixedUpdate()
     {
         //Different moving mechanism depending on whether the ball is moving platforms or not
-        if (MovingPlatforms)
+        if (IsTransitioning)
         {
             ChangePlatforms();
         }
@@ -50,7 +50,7 @@ public class BallController : MonoBehaviour {
         transform.position = Vector3.MoveTowards(transform.position, NewPos, step);
         //If ball transition is complete, set Movingplatforms bool to false and continue moving forward at normal speed
         if(transform.position == NewPos){
-            SetMovingPlatforms(false);
+            SetIsTransitioning(false);
         }
     }
 
@@ -122,20 +122,20 @@ public class BallController : MonoBehaviour {
         PreviousThreshold = Offset;
         Offset += diff;
         NewPos = new Vector3(transform.position.x, y, transform.position.z + z);
-        SetMovingPlatforms(true);
+        SetIsTransitioning(true);
         //if new position is lower, then activate fall and vice versa.
         //We don't want the user to be able to click up down while in air, so we'll disable touch
             
     }
 
     //Enable and disable and set platform transition variables
-    private void SetMovingPlatforms(bool move){
+    private void SetIsTransitioning(bool move){
         if(move){
             rb.velocity = new Vector3(0, 0, 0);
         }else{
             rb.velocity = new Vector3(0, 0, speed);
         }
-        MovingPlatforms = move;
+        IsTransitioning = move;
         Touch.SetActive(!move);
     }
 
@@ -152,8 +152,8 @@ public class BallController : MonoBehaviour {
     }
 
     //Called from the camera script
-    public bool GetMovingPlatforms(){
-        return MovingPlatforms;
+    public bool GetIsTransitioning(){
+        return IsTransitioning;
     }
 
     public void JumpUp(){
@@ -167,14 +167,15 @@ public class BallController : MonoBehaviour {
     public void ReachedTop(){
         Debug.Log("Reached Top");
         GameObject temp = Instantiate(GameControl.Instance.peAura, transform.position+new Vector3(0,0.45f,0), Quaternion.Euler(-90,0,0));
+        temp.AddComponent<Rigidbody>().velocity = rb.velocity - new Vector3(0 ,0, -2);
         Destroy(temp, 1f);
-        temp.transform.parent = gameObject.transform;
     }
 
     public void ReachedBottom(){
         Debug.Log("Reached Bottom");
         GameObject temp = Instantiate(GameControl.Instance.peAura, transform.position - new Vector3(0, 0.45f, 0)+ new Vector3(0, 0,0), Quaternion.Euler(-90, 0, 0));
-        temp.transform.parent = gameObject.transform;
+        //temp.transform.parent = gameObject.transform;
+        temp.AddComponent<Rigidbody>().velocity = rb.velocity - new Vector3(0, 0, -2);
         Destroy(temp, 1f);
     }
 }
