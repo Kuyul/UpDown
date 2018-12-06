@@ -17,6 +17,7 @@ public class BallController : MonoBehaviour {
     private float Offset = 0f;
     private float PreviousThreshold = 0f;
     private bool MovingPlatforms = false;
+    private bool UpDownTransitioning = false; //Flag updown transitioning
 
     void Start(){
         rb = GetComponent<Rigidbody>();
@@ -30,7 +31,7 @@ public class BallController : MonoBehaviour {
         {
             ChangePlatforms();
         }
-        else
+        else if (UpDownTransitioning)
         {
             if (Up)
             {
@@ -70,6 +71,7 @@ public class BallController : MonoBehaviour {
 
         //Check if ball transition is complete
         if(transform.position == newPos){
+            UpDownTransitioning = false;
             //Reached Top if Up = true
             if(Up){
                 ReachedTop();
@@ -101,7 +103,7 @@ public class BallController : MonoBehaviour {
 	public void UpDown()
     {
         Up = !Up;
-
+        UpDownTransitioning = true; //Flag
         //Starting jump or fall
         if(Up){
             JumpUp();
