@@ -132,6 +132,15 @@ public class BallController : MonoBehaviour {
     private void SetIsTransitioning(bool move){
         if(move){
             rb.velocity = new Vector3(0, 0, 0);
+            if (Up == true)
+            {
+                JumpUp();
+            }
+            else
+            {
+                JumpDown();
+            }
+
         }else{
             rb.velocity = new Vector3(0, 0, speed);
             if(Up){
