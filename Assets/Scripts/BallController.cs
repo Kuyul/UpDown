@@ -134,6 +134,11 @@ public class BallController : MonoBehaviour {
             rb.velocity = new Vector3(0, 0, 0);
         }else{
             rb.velocity = new Vector3(0, 0, speed);
+            if(Up){
+                ReachedTop();
+            }else{
+                ReachedBottom();
+            }
         }
         IsTransitioning = move;
         Touch.SetActive(!move);
