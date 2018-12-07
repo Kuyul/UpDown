@@ -157,25 +157,22 @@ public class BallController : MonoBehaviour {
     }
 
     public void JumpUp(){
-        Debug.Log("Jumping Up");
+
+        GameControl.Instance.pebot.SetTrigger("yesalpha");
     }
 
     public void JumpDown(){
-        Debug.Log("Jumping Down");
+
+        GameControl.Instance.petop.SetTrigger("yesalpha");
     }
 
     public void ReachedTop(){
-        Debug.Log("Reached Top");
-        GameObject temp = Instantiate(GameControl.Instance.peAura, transform.position+new Vector3(0,0.45f,0), Quaternion.Euler(-90,0,0));
-        temp.AddComponent<Rigidbody>().velocity = rb.velocity - new Vector3(0 ,0, -2);
-        Destroy(temp, 1f);
+        Instantiate(GameControl.Instance.pesplash, transform.position + new Vector3(0, 0.5f, 0), Quaternion.Euler(90,0,0));
+        GameControl.Instance.petop.SetTrigger("noalpha");
     }
 
     public void ReachedBottom(){
-        Debug.Log("Reached Bottom");
-        GameObject temp = Instantiate(GameControl.Instance.peAura, transform.position - new Vector3(0, 0.45f, 0)+ new Vector3(0, 0,0), Quaternion.Euler(-90, 0, 0));
-        //temp.transform.parent = gameObject.transform;
-        temp.AddComponent<Rigidbody>().velocity = rb.velocity - new Vector3(0, 0, -2);
-        Destroy(temp, 1f);
+        Instantiate(GameControl.Instance.pesplash, transform.position - new Vector3(0, 0.5f, 0), Quaternion.Euler(-90, 0, 0));
+        GameControl.Instance.pebot.SetTrigger("noalpha");
     }
 }
