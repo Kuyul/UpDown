@@ -4853,7 +4853,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedUpDown: 50
   speed: 35
-  heightChangeSpeed: 3
+  heightChangeSpeed: 20
   Touch: {fileID: 1637335638}
 --- !u!95 &431128213
 Animator:
