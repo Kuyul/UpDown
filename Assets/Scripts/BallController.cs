@@ -172,21 +172,19 @@ public class BallController : MonoBehaviour {
 
     public void JumpUp(){
 
-        GameControl.Instance.pebot.SetTrigger("yesalpha");
+
     }
 
     public void JumpDown(){
 
-        GameControl.Instance.petop.SetTrigger("yesalpha");
+
     }
 
     public void ReachedTop(){
-        Instantiate(GameControl.Instance.pesplash, transform.position + new Vector3(0, 0.5f, 0), Quaternion.Euler(90,0,0));
-        GameControl.Instance.petop.SetTrigger("noalpha");
+
     }
 
     public void ReachedBottom(){
-        Instantiate(GameControl.Instance.pesplash, transform.position - new Vector3(0, 0.5f, 0), Quaternion.Euler(-90, 0, 0));
-        GameControl.Instance.pebot.SetTrigger("noalpha");
+
     }
 }

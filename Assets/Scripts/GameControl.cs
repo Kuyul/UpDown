@@ -11,12 +11,6 @@ public class GameControl : MonoBehaviour {
     public PlatformControl PlatformControl;
     public BallController BallController;
 
-    public GameObject pesplash;
-
-    public Animator petop;
-    public Animator pebot;
-    public Animator ball;
-
 	// Use this for initialization
 	void Start () {
 
