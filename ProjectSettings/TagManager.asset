@@ -9,6 +9,7 @@ TagManager:
   - Obstacle
   - Start
   - End
+  - GameEnd
   layers:
   - Default
   - TransparentFX

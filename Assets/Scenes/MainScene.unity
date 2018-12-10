@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15001,9 +15001,10 @@ MonoBehaviour:
   - {fileID: 1180428007359216, guid: 573bfd3e86aa24a35b929d0762622621, type: 2}
   - {fileID: 1834321053351368, guid: feb052193167147e5b1533b3c8839da0, type: 2}
   - {fileID: 1702433412699436, guid: fed82d1eb6dbb4a80951b1597ecd063b, type: 2}
+  GameEnd: {fileID: 1156409332093904, guid: bf027b9db178f4a6eb09e60103917c0f, type: 2}
   NumPlatforms: 4
-  LengthOffset: 120
-  HeightOffset: 60
+  LengthOffset: 60
+  HeightOffset: 30
 --- !u!4 &1165777494
 Transform:
   m_ObjectHideFlags: 0
