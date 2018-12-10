@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15483,9 +15483,49 @@ MonoBehaviour:
   - {fileID: 1834321053351368, guid: feb052193167147e5b1533b3c8839da0, type: 2}
   - {fileID: 1702433412699436, guid: fed82d1eb6dbb4a80951b1597ecd063b, type: 2}
   GameEnd: {fileID: 1156409332093904, guid: bf027b9db178f4a6eb09e60103917c0f, type: 2}
-  NumPlatforms: 2
+  NumPlatforms: 4
   LengthOffset: 60
   HeightOffset: 30
+  Below:
+  - {fileID: 2100000, guid: eeadd1f89e36beb41b4f5660f5c56ced, type: 2}
+  - {fileID: 2100000, guid: 931114374831cbd45a9dc127e1947c41, type: 2}
+  - {fileID: 2100000, guid: 2a0ece36ee2c7a541a10a980e6939636, type: 2}
+  - {fileID: 2100000, guid: 49a115bb055130b48b77d1dfe83ffdcf, type: 2}
+  - {fileID: 2100000, guid: ec78b4e31b7edd644a5a0724ac8ff945, type: 2}
+  - {fileID: 2100000, guid: 27ec75453b4eba246b4987e1f7272ad2, type: 2}
+  - {fileID: 2100000, guid: e9ad95d042dcef243b802ed46bb6a5f4, type: 2}
+  - {fileID: 2100000, guid: 0cfc5e812a48acb4c9c575dfb1c63b90, type: 2}
+  - {fileID: 2100000, guid: 0c073bfc840587d48ae075a8b04922b6, type: 2}
+  Upper:
+  - {fileID: 2100000, guid: 21ebeff3cbb15eb4fafcf4cbcffd7609, type: 2}
+  - {fileID: 2100000, guid: b3ad578420ba39a46bf1db0bc8f0c5da, type: 2}
+  - {fileID: 2100000, guid: 7069a5f6b6ca6724aa84695a5db7b581, type: 2}
+  - {fileID: 2100000, guid: 971ae1ea7f8f4fd41a08cc3b2f5b423c, type: 2}
+  - {fileID: 2100000, guid: 92ebe895e5807ea46a25dd642d415553, type: 2}
+  - {fileID: 2100000, guid: c96cb7b8dd30a1749a19c0ce01d965e6, type: 2}
+  - {fileID: 2100000, guid: 56da1ad910ad04e42a3d3c6916d13157, type: 2}
+  - {fileID: 2100000, guid: 6b24c136e05c2ff47bc9d84aaee6ec6b, type: 2}
+  - {fileID: 2100000, guid: d752606f43efc35419d06009c506cffa, type: 2}
+  OBelow:
+  - {fileID: 2100000, guid: e122e7904f9b69847aba58fffcc00073, type: 2}
+  - {fileID: 2100000, guid: 3326b0cf9d0976c4fb26cc84b0cd8422, type: 2}
+  - {fileID: 2100000, guid: 5d5cbb0d146ee0e47a498263558cf9bb, type: 2}
+  - {fileID: 2100000, guid: 4c765c7c5995d024ab746a01562876b5, type: 2}
+  - {fileID: 2100000, guid: bd651a05fd0d4704cacab63442f992b0, type: 2}
+  - {fileID: 2100000, guid: 678753e677c6ee14690e0c802b3913c7, type: 2}
+  - {fileID: 2100000, guid: 54e963608b0626647bfad6922d638112, type: 2}
+  - {fileID: 2100000, guid: 9fbb1227b7434554a9aabf01c431e04f, type: 2}
+  - {fileID: 2100000, guid: 17df1a607f4212549a76fa6d6d4e1f58, type: 2}
+  OUpper:
+  - {fileID: 2100000, guid: 358ee253b325f18499e905a79592103b, type: 2}
+  - {fileID: 2100000, guid: 8470da87908f6ef4ebd374817644aacc, type: 2}
+  - {fileID: 2100000, guid: fa260bae6b6e71044906c4743692900d, type: 2}
+  - {fileID: 2100000, guid: a650e99c201bf1e4d8cd5b4baff19b5f, type: 2}
+  - {fileID: 2100000, guid: 308a4349faff0c749bec22980638323b, type: 2}
+  - {fileID: 2100000, guid: 6c5d72cc16fc5254bb988e8cebb2d3ca, type: 2}
+  - {fileID: 2100000, guid: ea5ee059db91b8e4da447bbf10822a94, type: 2}
+  - {fileID: 2100000, guid: eff3903be2aa3c8488dc0d9375f312b9, type: 2}
+  - {fileID: 2100000, guid: a0c0a14c40331024a9c0db080a57a8ff, type: 2}
 --- !u!4 &1165777494
 Transform:
   m_ObjectHideFlags: 0
@@ -15982,7 +16022,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlatformControl: {fileID: 1165777493}
   BallController: {fileID: 431128212}
-  ScoreControl: {fileID: 0}
   panelStart: {fileID: 1657881482}
   panelDeath: {fileID: 657695054}
   panelTop: {fileID: 461990819}

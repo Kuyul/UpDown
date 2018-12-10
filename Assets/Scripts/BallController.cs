@@ -149,7 +149,7 @@ public class BallController : MonoBehaviour {
 
     IEnumerator StartSlowMo(){
         heightChangeSpeed = slowMoSpeed;
-        yield return new WaitForSeconds(0.15f);
+        yield return new WaitForSeconds(0.05f);
         heightChangeSpeed = OriginalChangeSpeed;
     }
 

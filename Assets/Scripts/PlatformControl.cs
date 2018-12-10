@@ -14,6 +14,12 @@ public class PlatformControl : MonoBehaviour {
     public float LengthOffset;
     public float HeightOffset;
 
+    //Declare materials
+    public Material[] Below;
+    public Material[] Upper;
+    public Material[] OBelow;
+    public Material[] OUpper;
+
     //Declare private variables
     private int platformNumber = 0;
     private List<GameObject> GeneratedPlatforms = new List<GameObject>();
@@ -24,6 +30,7 @@ public class PlatformControl : MonoBehaviour {
         {
             Instance = this;
         }
+       
 	}
 
 	// Use this for initialization
@@ -44,7 +51,10 @@ public class PlatformControl : MonoBehaviour {
             }
             var platform = Instantiate(summon, newPos, Quaternion.identity); //Instantiate platform at newPos
             GeneratedPlatforms.Add(platform);
-            offset += summon.GetComponent<Platform>().GetPlatformLength();
+            offset += platform.GetComponent<Platform>().GetPlatformLength();
+
+            var lvl = PlayerPrefs.GetInt("level", 1) % Upper.Length;
+            platform.GetComponent<Platform>().SetMaterials(Upper[lvl], Below[lvl], OUpper[lvl], OBelow[lvl]);
             //We don't want to add offset at the last platform
             if (i < NumPlatforms - 1)
             {
