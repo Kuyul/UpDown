@@ -26,7 +26,7 @@ public class BallController : MonoBehaviour {
 
     void Start(){
         rb = GetComponent<Rigidbody>();
-        rb.velocity = new Vector3(0, 0, speed);
+
         OriginalChangeSpeed = heightChangeSpeed;
     }
 
@@ -201,10 +201,15 @@ public class BallController : MonoBehaviour {
     }
 
     public void ReachedTop(){
-
+        GameControl.Instance.IncrementScore();
     }
 
     public void ReachedBottom(){
+        GameControl.Instance.IncrementScore();
+    }
 
+    public void StartBallMovement()
+    {
+        rb.velocity = new Vector3(0, 0, speed);
     }
 }
