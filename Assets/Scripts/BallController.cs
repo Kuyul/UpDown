@@ -12,6 +12,7 @@ public class BallController : MonoBehaviour {
     public GameObject Touch;
     public GameObject[] ParticleEffects;
     public GameObject peFire;
+    public GameObject trail;
 
     //Declare private variables
     private float OriginalChangeSpeed;
@@ -157,7 +158,7 @@ public class BallController : MonoBehaviour {
     private void SetIsTransitioning(bool move){
         if(move){
             peFire.SetActive(true);
-            Debug.Log("bla");
+            trail.SetActive(false);
             rb.velocity = new Vector3(0, 0, 0);
             if (Up == true)
             {
@@ -170,6 +171,7 @@ public class BallController : MonoBehaviour {
 
         }else{
             peFire.SetActive(false);
+            trail.SetActive(true);
             //Activate Particle effects
             if (ActivatePE < ParticleEffects.Length)
             {
