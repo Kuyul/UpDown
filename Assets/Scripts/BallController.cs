@@ -104,6 +104,11 @@ public class BallController : MonoBehaviour {
             Debug.Log("End of platform");
             JumpPlatforms();
         }
+
+        if (other.tag == "GameEnd"){
+            //TODO: Sam put your code here
+            Debug.Log("Game End");
+        }
     }
 
 	public void UpDown()
@@ -136,7 +141,7 @@ public class BallController : MonoBehaviour {
 
     IEnumerator StartSlowMo(){
         heightChangeSpeed = slowMoSpeed;
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.15f);
         heightChangeSpeed = OriginalChangeSpeed;
     }
 

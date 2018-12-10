@@ -9,6 +9,7 @@ public class PlatformControl : MonoBehaviour {
     //Declare Public GameObjects
     public GameObject[] PlatformsBottom;
     public GameObject[] PlatformsTop;
+    public GameObject GameEnd;
     public int NumPlatforms;
     public float LengthOffset;
     public float HeightOffset;
@@ -44,7 +45,14 @@ public class PlatformControl : MonoBehaviour {
             var platform = Instantiate(summon, newPos, Quaternion.identity); //Instantiate platform at newPos
             GeneratedPlatforms.Add(platform);
             offset += summon.GetComponent<Platform>().GetPlatformLength();
-            offset += LengthOffset;
+            //We don't want to add offset at the last platform
+            if (i < NumPlatforms - 1)
+            {
+                offset += LengthOffset; 
+            }else{
+                var endPos = new Vector3(0,height,offset);
+                Instantiate(GameEnd, endPos, Quaternion.identity);
+            }
 
             //Up or Down
             height += upDownVal * HeightOffset;
