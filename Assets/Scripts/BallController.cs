@@ -7,10 +7,15 @@ public class BallController : MonoBehaviour {
     //Declare public variables
     public float speedUpDown;
     public float speed = 20f;
-    public float heightChangeSpeed = 5f;
+    public float heightChangeSpeed = 60f;
+    public float slowMoSpeed = 5f;
     public GameObject Touch;
+    public GameObject[] ParticleEffects;
+    public GameObject FireTrail;
 
     //Declare private variables
+    private float OriginalChangeSpeed;
+    private int ActivatePE = 0;
     private bool Up = false;
     private Rigidbody rb;
     private Vector3 NewPos;
@@ -22,6 +27,7 @@ public class BallController : MonoBehaviour {
     void Start(){
         rb = GetComponent<Rigidbody>();
         rb.velocity = new Vector3(0, 0, speed);
+        OriginalChangeSpeed = heightChangeSpeed;
     }
 
     private void FixedUpdate()
@@ -125,12 +131,19 @@ public class BallController : MonoBehaviour {
         SetIsTransitioning(true);
         //if new position is lower, then activate fall and vice versa.
         //We don't want the user to be able to click up down while in air, so we'll disable touch
-            
+        StartCoroutine(StartSlowMo());
+    }
+
+    IEnumerator StartSlowMo(){
+        heightChangeSpeed = slowMoSpeed;
+        yield return new WaitForSeconds(0.3f);
+        heightChangeSpeed = OriginalChangeSpeed;
     }
 
     //Enable and disable and set platform transition variables
     private void SetIsTransitioning(bool move){
         if(move){
+            FireTrail.SetActive(true);
             rb.velocity = new Vector3(0, 0, 0);
             if (Up == true)
             {
@@ -142,6 +155,13 @@ public class BallController : MonoBehaviour {
             }
 
         }else{
+            FireTrail.SetActive(false);
+            //Activate Particle effects
+            if (ActivatePE < ParticleEffects.Length)
+            {
+                ParticleEffects[ActivatePE].SetActive(true);
+                ActivatePE += 1;
+            }
             rb.velocity = new Vector3(0, 0, speed);
             if(Up){
                 ReachedTop();
