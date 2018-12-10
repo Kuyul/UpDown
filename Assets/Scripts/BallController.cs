@@ -101,14 +101,22 @@ public class BallController : MonoBehaviour {
         //Whenever the ball reaches the end of a platform go up or down
         if (other.tag == "End")
         {
-            Debug.Log("End of platform");
             JumpPlatforms();
         }
 
         if (other.tag == "GameEnd"){
-            //TODO: Sam put your code here
-            Debug.Log("Game End");
+
+            GameControl.Instance.LevelComplete();
+            GameControl.Instance.panelLevelClear.SetActive(true);
+            StartCoroutine(Delay(2f));
+
         }
+    }
+
+    IEnumerator Delay(float time)
+    {
+        yield return new WaitForSeconds(time);
+        GameControl.Instance.Restart();
     }
 
 	public void UpDown()
