@@ -14942,6 +14942,7 @@ GameObject:
   - component: {fileID: 635857701}
   - component: {fileID: 635857703}
   - component: {fileID: 635857702}
+  - component: {fileID: 635857704}
   m_Layer: 5
   m_Name: TextCurrentscore
   m_TagString: Untagged
@@ -15007,6 +15008,24 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 635857700}
   m_CullTransparentMesh: 0
+--- !u!95 &635857704
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 635857700}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f2eb895362d5ac543acdd8f4d197cbaf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &657695054
 GameObject:
   m_ObjectHideFlags: 0
@@ -16028,7 +16047,7 @@ MonoBehaviour:
   panelLevelClear: {fileID: 1027508342}
   gaLevel: {fileID: 1694331781}
   gaHighscore: {fileID: 1495540169}
-  gaCurrentscore: {fileID: 635857700}
+  textMoveUp: {fileID: 635857704}
   textLevel: {fileID: 1694331783}
   textHighscore: {fileID: 1495540171}
   textCurrentscore: {fileID: 635857702}
