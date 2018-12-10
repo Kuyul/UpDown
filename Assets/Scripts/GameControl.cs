@@ -18,7 +18,8 @@ public class GameControl : MonoBehaviour {
     public GameObject panelLevelClear;
     public GameObject gaLevel;
     public GameObject gaHighscore;
-    public GameObject gaCurrentscore;
+
+    public Animator textMoveUp;
 
     public Text textLevel;
     public Text textHighscore;
@@ -75,8 +76,8 @@ public class GameControl : MonoBehaviour {
         panelStart.SetActive(false);
         gaLevel.SetActive(false);
         gaHighscore.SetActive(false);
-        gaCurrentscore.SetActive(true);
 
+        textMoveUp.SetTrigger("start");
         BallController.StartBallMovement();
     }
 
