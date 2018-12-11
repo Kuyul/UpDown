@@ -10,6 +10,7 @@ TagManager:
   - Start
   - End
   - GameEnd
+  - Collect
   layers:
   - Default
   - TransparentFX

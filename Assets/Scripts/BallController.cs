@@ -13,6 +13,7 @@ public class BallController : MonoBehaviour {
     public GameObject[] ParticleEffects;
     public GameObject peFire;
     public GameObject trail;
+    public GameObject CollectablePE;
 
     //Declare private variables
     private float OriginalChangeSpeed;
@@ -110,7 +111,13 @@ public class BallController : MonoBehaviour {
             GameControl.Instance.LevelComplete();
             GameControl.Instance.panelLevelClear.SetActive(true);
             StartCoroutine(Delay(2f));
+        }
 
+        if(other.tag == "Collect")
+        {
+            var pe = Instantiate(CollectablePE, gameObject.transform);
+            Destroy(other.gameObject);
+            Destroy(pe, 0.5f);
         }
     }
 
