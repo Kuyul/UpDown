@@ -18,6 +18,7 @@ public class GameControl : MonoBehaviour {
     public GameObject panelLevelClear;
     public GameObject gaLevel;
     public GameObject gaHighscore;
+    public GameObject peDeath;
 
     public Animator textMoveUp;
 
@@ -81,6 +82,14 @@ public class GameControl : MonoBehaviour {
     public void GameOver()
     {
         BallController.gameObject.SetActive(false);
+        Instantiate(peDeath, BallController.gameObject.transform.position, Quaternion.identity);
+        StartCoroutine(Delay(1f));
+    }
+
+    IEnumerator Delay(float time)
+    {
+
+        yield return new WaitForSeconds(time);
         panelTop.SetActive(false);
         panelDeath.SetActive(true);
         deathScore.text = currentScore.ToString();

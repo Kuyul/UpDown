@@ -119,9 +119,9 @@ public class BallController : MonoBehaviour {
         }
     }
 
-    IEnumerator Delay(float time)
+    IEnumerator Delay(float time1)
     {
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds(time1);
         GameControl.Instance.Restart();
     }
 
