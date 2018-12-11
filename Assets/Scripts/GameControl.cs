@@ -29,6 +29,8 @@ public class GameControl : MonoBehaviour {
     public Text levClearLevel;
     public Text levClearCurrentscore;
     public Text levClearHighscore;
+    public Text textCurrentLev;
+    public Text textNextLev;
 
     private int currentScore = 0;
 
@@ -65,7 +67,10 @@ public class GameControl : MonoBehaviour {
             textCurrentscore.text = PlayerPrefs.GetInt("continuescore", 0).ToString();
             currentScore = PlayerPrefs.GetInt("continuescore", 0);
         }
-	}
+
+        textCurrentLev.text = PlayerPrefs.GetInt("level", 1).ToString();
+        textNextLev.text = (PlayerPrefs.GetInt("level", 1)+1).ToString();
+    }
 
     public void UpDown()
     {
