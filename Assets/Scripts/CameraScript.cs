@@ -18,7 +18,7 @@ public class CameraScript : MonoBehaviour {
 
 	private void Start()
 	{
-        KeepDistance = BallToFollow.position.z - transform.position.z;
+        KeepDistance = 16.6f;
         BC = BallToFollow.GetComponent<BallController>();
         YOffsetGoingDown = transform.position.y - BallToFollow.position.y;
         YOffsetGoingUp = YOffsetGoingDown - 10;
