@@ -11,12 +11,14 @@ public class CameraScript : MonoBehaviour {
     private float KeepDistance;
     private BallController BC;
     private float YOffset;
+    private float InitialOffset;
 
 	private void Start()
 	{
         KeepDistance = BallToFollow.position.z - transform.position.z;
         BC = BallToFollow.GetComponent<BallController>();
         YOffset = transform.position.y - BallToFollow.position.y;
+        InitialOffset = transform.position.y - BallToFollow.position.y;
     }
 
 	// Update is called once per frame
@@ -34,7 +36,7 @@ public class CameraScript : MonoBehaviour {
         else
         {
             //the camera will follow the ball by keeping the same distance with the ball as when it started
-            transform.position = new Vector3(transform.position.x, transform.position.y, ballPosZ - KeepDistance);
+            transform.position = new Vector3(transform.position.x, transform.position.y + InitialOffset, ballPosZ - KeepDistance);
             YOffset = transform.position.y - BallToFollow.position.y; 
         }
     }

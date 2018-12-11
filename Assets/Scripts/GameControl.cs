@@ -32,8 +32,21 @@ public class GameControl : MonoBehaviour {
 
     private int currentScore = 0;
 
-    // Use this for initialization
-    void Start () {
+	private void Awake()
+	{
+        var level = LevelControl.Instance.GetSpeedLevel();
+        var speed = (level + 1) * 15;
+        BallController.speed = speed;
+        PlatformControl.HeightOffset = speed;
+        PlatformControl.LengthOffset = speed * 2;
+        BallController.heightChangeSpeed = speed * 3;
+        PlatformControl.NumPlatforms = (level - 1) / 2 + 2;
+        Debug.Log(speed);
+        Debug.Log(level);
+	}
+
+	// Use this for initialization
+	void Start () {
 
         Application.targetFrameRate = 300;
 
@@ -109,6 +122,7 @@ public class GameControl : MonoBehaviour {
         PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level", 1) + 1);
 
         PlayerPrefs.SetInt("continuescore", currentScore); // score to start from when you complete level
+        LevelControl.Instance.AddSpeedLevel();
     }
 
     private void OnApplicationQuit()

@@ -25,7 +25,12 @@ public class BallController : MonoBehaviour {
     private bool IsTransitioning = false;
     private bool UpDownTransitioning = false; //Flag updown transitioning
 
-    void Start(){
+	private void Awake()
+	{
+        
+	}
+
+	void Start(){
         rb = GetComponent<Rigidbody>();
 
         OriginalChangeSpeed = heightChangeSpeed;
