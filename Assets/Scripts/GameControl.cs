@@ -11,6 +11,7 @@ public class GameControl : MonoBehaviour {
     //Declare controllers
     public PlatformControl PlatformControl;
     public BallController BallController;
+    public Transform Ball;
 
     public GameObject panelStart;
     public GameObject panelDeath;
@@ -32,6 +33,7 @@ public class GameControl : MonoBehaviour {
     public Text levClearHighscore;
     public Text textCurrentLev;
     public Text textNextLev;
+    public Slider ProgressBar;
 
     private int currentScore = 0;
 
@@ -70,6 +72,12 @@ public class GameControl : MonoBehaviour {
 
         textCurrentLev.text = PlayerPrefs.GetInt("level", 1).ToString();
         textNextLev.text = (PlayerPrefs.GetInt("level", 1)+1).ToString();
+    }
+
+    private void Update()
+    {
+        var value = Ball.position.z/PlatformControl.GetTotalLength();
+        ProgressBar.value = value;
     }
 
     public void UpDown()

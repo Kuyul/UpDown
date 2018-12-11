@@ -22,6 +22,7 @@ public class PlatformControl : MonoBehaviour {
 
     //Declare private variables
     private int platformNumber = 0;
+    private float TotalLength = 0;
     private List<GameObject> GeneratedPlatforms = new List<GameObject>();
 
 	private void Awake()
@@ -67,8 +68,9 @@ public class PlatformControl : MonoBehaviour {
             //Up or Down
             height += upDownVal * HeightOffset;
         }
-	}
-	
+        TotalLength = offset;
+    }
+
     //Called from the ballcontroller class when it reaches the end of a platform
     //Calculates the position of where the ball should land coming from the previous platform
     public float NextPlatformBallPos(){
@@ -85,5 +87,10 @@ public class PlatformControl : MonoBehaviour {
         var nextPosY = GeneratedPlatforms[platformNumber].GetComponent<Transform>().position.y;
         var y = nextPosY - prevPosY; //get the difference in height between two platforms
         return y;
+    }
+
+    public float GetTotalLength()
+    {
+        return TotalLength;
     }
 }
