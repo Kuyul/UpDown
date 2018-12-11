@@ -190,8 +190,13 @@ public class BallController : MonoBehaviour {
                 ReachedBottom();
             }
         }
-        IsTransitioning = move;
+        StartCoroutine(WaitALittle(move));
         Touch.SetActive(!move);
+    }
+
+    IEnumerator WaitALittle(bool move){
+        yield return new WaitForSeconds(0.10f);
+        IsTransitioning = move;
     }
 
     //Called from the camera script
