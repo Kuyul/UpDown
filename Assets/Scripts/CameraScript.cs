@@ -10,15 +10,15 @@ public class CameraScript : MonoBehaviour {
     //Declare private variables
     private float KeepDistance;
     private BallController BC;
-    private float YOffset;
-    private float InitialOffset;
+    private float YOffsetGoingDown;
+    private float YOffsetGoingUp;
 
 	private void Start()
 	{
         KeepDistance = BallToFollow.position.z - transform.position.z;
         BC = BallToFollow.GetComponent<BallController>();
-        YOffset = transform.position.y - BallToFollow.position.y;
-        InitialOffset = YOffset;
+        YOffsetGoingDown = transform.position.y - BallToFollow.position.y;
+        YOffsetGoingUp = YOffsetGoingDown - 10;
     }
 
 	// Update is called once per frame
@@ -27,17 +27,20 @@ public class CameraScript : MonoBehaviour {
         
         if(BC.GetIsTransitioning()){
             if(BC.PassedPreviousThreshold()){
-                transform.position = new Vector3(transform.position.x, BallToFollow.position.y + YOffset, ballPosZ - KeepDistance);
+                if(BC.GetUpDown())
+                    transform.position = new Vector3(transform.position.x, BallToFollow.position.y + YOffsetGoingUp, ballPosZ - KeepDistance);
+                else
+                    transform.position = new Vector3(transform.position.x, BallToFollow.position.y + YOffsetGoingDown, ballPosZ - KeepDistance);
             }else{
                 transform.position = new Vector3(transform.position.x, transform.position.y, ballPosZ - KeepDistance);
-                YOffset = transform.position.y - BallToFollow.position.y; //Record the Yoffset to keep the ydistance between camera and ball while its flying up
+                //YOffset = transform.position.y - BallToFollow.position.y; //Record the Yoffset to keep the ydistance between camera and ball while its flying up
             }
         }
         else
         {
             //the camera will follow the ball by keeping the same distance with the ball as it first started
             transform.position = new Vector3(transform.position.x, transform.position.y, ballPosZ - KeepDistance);
-            YOffset = transform.position.y - BallToFollow.position.y; 
+           // YOffset = transform.position.y - BallToFollow.position.y; 
         }
     }
 }

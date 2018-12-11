@@ -195,7 +195,7 @@ public class BallController : MonoBehaviour {
     }
 
     IEnumerator WaitALittle(bool move){
-        yield return new WaitForSeconds(0.10f);
+        yield return new WaitForSeconds(0.02f);
         IsTransitioning = move;
     }
 
@@ -214,6 +214,10 @@ public class BallController : MonoBehaviour {
     //Called from the camera script
     public bool GetIsTransitioning(){
         return IsTransitioning;
+    }
+
+    public bool GetUpDown(){
+        return Up;
     }
 
     public void JumpUp(){
