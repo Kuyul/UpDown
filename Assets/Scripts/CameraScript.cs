@@ -12,6 +12,9 @@ public class CameraScript : MonoBehaviour {
     private BallController BC;
     private float YOffsetGoingDown;
     private float YOffsetGoingUp;
+    private bool BIsTransitioning = false;
+    private bool BPassedPreviousThreshold = false;
+    private bool BGetUpDown = false;
 
 	private void Start()
 	{
@@ -23,15 +26,18 @@ public class CameraScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
-                var ballPosZ = BallToFollow.position.z;
-        
-        if(BC.GetIsTransitioning()){
-            if(BC.PassedPreviousThreshold()){
-                if(BC.GetUpDown())
+        var ballPosZ = BallToFollow.position.z;
+
+        if (BIsTransitioning)
+        {
+            if(BPassedPreviousThreshold)
+            {
+                if(BGetUpDown)
                     transform.position = new Vector3(transform.position.x, BallToFollow.position.y + YOffsetGoingUp, ballPosZ - KeepDistance);
                 else
                     transform.position = new Vector3(transform.position.x, BallToFollow.position.y + YOffsetGoingDown, ballPosZ - KeepDistance);
-            }else{
+            }
+            else{
                 transform.position = new Vector3(transform.position.x, transform.position.y, ballPosZ - KeepDistance);
                 //YOffset = transform.position.y - BallToFollow.position.y; //Record the Yoffset to keep the ydistance between camera and ball while its flying up
             }
@@ -42,5 +48,9 @@ public class CameraScript : MonoBehaviour {
             transform.position = new Vector3(transform.position.x, transform.position.y, ballPosZ - KeepDistance);
            // YOffset = transform.position.y - BallToFollow.position.y; 
         }
+
+        BIsTransitioning = BC.GetIsTransitioning();
+        BPassedPreviousThreshold = BC.PassedPreviousThreshold();
+        BGetUpDown = BC.GetUpDown();
     }
 }
