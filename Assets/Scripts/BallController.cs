@@ -30,7 +30,6 @@ public class BallController : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
 
         OriginalChangeSpeed = heightChangeSpeed;
-        rb.angularVelocity = new Vector3(0,0,120f);
     }
 
     private void FixedUpdate()
