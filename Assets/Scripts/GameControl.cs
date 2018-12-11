@@ -22,6 +22,7 @@ public class GameControl : MonoBehaviour {
     public GameObject peDeath;
 
     public Animator textMoveUp;
+    public Animator cameraMove;
 
     public Text textLevel;
     public Text textHighscore;
@@ -108,10 +109,17 @@ public class GameControl : MonoBehaviour {
     // Called from start screen to start game when user touches screen
     public void StartGame()
     {
+        cameraMove.SetTrigger("cameramove");
+        StartCoroutine(Delay2(1f));
+    }
+
+    IEnumerator Delay2(float time)
+    {      
+        yield return new WaitForSeconds(time);
+        Destroy(cameraMove);
         panelStart.SetActive(false);
         gaLevel.SetActive(false);
         gaHighscore.SetActive(false);
-
         textMoveUp.SetTrigger("start");
         BallController.StartBallMovement();
     }
