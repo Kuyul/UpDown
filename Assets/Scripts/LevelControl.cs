@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class LevelControl : MonoBehaviour
 {
+    //Declare public variables
     public static LevelControl Instance;
+    public int LevelUpCounter = 3;
     //Declare private variables
     private int Count;
+    private bool First = true;
 
-	private void Awake()
+    private void Awake()
 	{
         if (Instance == null)
         {
@@ -27,23 +30,41 @@ public class LevelControl : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    //Called from GameControl Class
     public int GetSpeedLevel(){
-        return PlayerPrefs.GetInt("SpeedLevel", 1);
+        var lvl = PlayerPrefs.GetInt("SpeedLevel", 1);
+        if(lvl >= 7 && First)
+        {
+            lvl -= 2;
+            PlayerPrefs.SetInt("SpeedLevel", lvl); //After gameover or restart we want the user to start at a non maximum speed;
+        }
+        First = false;
+        return lvl;
     }
 
+    //Called when game over
     public void AddSpeedLevel()
     {
-        Count++;
-        if (Count >= 3)
+        var level = GetSpeedLevel();
+        if (level < 7)
         {
-            PlayerPrefs.SetInt("SpeedLevel", GetSpeedLevel() + 1);
-            Count = 0;
+            Count++;
+            if (Count >= LevelUpCounter)
+            {
+                PlayerPrefs.SetInt("SpeedLevel", level + 1);
+                Count = 0;
+            }
         }
+    }
+
+    public void SetSpeedLevel(int level)
+    {
+        PlayerPrefs.SetInt("SpeedLevel", level);
+    }
+
+    //Called when level = 7 and gameover;
+    public void ResetSpeed()
+    {
+        First = true;
     }
 }

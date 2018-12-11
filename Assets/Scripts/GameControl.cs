@@ -44,8 +44,7 @@ public class GameControl : MonoBehaviour {
         PlatformControl.LengthOffset = speed * 2;
         BallController.heightChangeSpeed = speed * 3;
         PlatformControl.NumPlatforms = (level - 1) / 2 + 2;
-        Debug.Log(speed);
-        Debug.Log(level);
+        Debug.Log("Level is: " + level);
 	}
 
 	// Use this for initialization
@@ -82,6 +81,7 @@ public class GameControl : MonoBehaviour {
     public void GameOver()
     {
         BallController.gameObject.SetActive(false);
+        LevelControl.Instance.ResetSpeed();
         Instantiate(peDeath, BallController.gameObject.transform.position, Quaternion.identity);
         StartCoroutine(Delay(1f));
     }
