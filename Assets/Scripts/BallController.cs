@@ -181,7 +181,6 @@ public class BallController : MonoBehaviour {
             if (ActivatePE < ParticleEffects.Length)
             {
                 ParticleEffects[ActivatePE].SetActive(true);
-                ActivatePE += 1;
             }
             rb.velocity = new Vector3(0, 0, speed);
             if(Up){
@@ -197,6 +196,7 @@ public class BallController : MonoBehaviour {
     IEnumerator WaitALittle(bool move){
         yield return new WaitForSeconds(0.02f);
         IsTransitioning = move;
+        ActivatePE += 1;
     }
 
     //Called from the camera script
