@@ -102,7 +102,7 @@ Material:
     - _Color1: {r: 1, g: 0, b: 0.8325906, a: 0}
     - _Color2: {r: 1, g: 0.97702324, b: 0, a: 0}
     - _Direction: {r: 0, g: 1, b: 0, a: 0}
-    - _EmissionColor: {r: 0.7735849, g: 0.55941457, b: 0.1788003, a: 1}
+    - _EmissionColor: {r: 0.18039213, g: 0.77254903, b: 0.1879195, a: 1}
     - _FrontBottomColor: {r: 1, g: 0.9470247, b: 0, a: 0}
     - _FrontTopColor: {r: 1, g: 0.9470247, b: 0, a: 0}
     - _HueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
@@ -112,6 +112,6 @@ Material:
     - _LightmapColor: {r: 0, g: 0, b: 0, a: 0}
     - _RightBottomColor: {r: 1, g: 0.9470247, b: 0, a: 0}
     - _RightTopColor: {r: 1, g: 0.9470247, b: 0, a: 0}
-    - _SpecColor: {r: 0.9566152, g: 0.990566, b: 0.042052314, a: 1}
+    - _SpecColor: {r: 0, g: 0.3301887, b: 0.14565004, a: 1}
     - _TintColor: {r: 0.74397135, g: 1, b: 0, a: 0.5}
     - _TopColor: {r: 1, g: 0.94509804, b: 0, a: 0}
