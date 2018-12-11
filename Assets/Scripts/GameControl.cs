@@ -110,17 +110,17 @@ public class GameControl : MonoBehaviour {
     public void StartGame()
     {
         cameraMove.SetTrigger("cameramove");
-        StartCoroutine(Delay2(1f));
+        panelStart.SetActive(false);
+        gaLevel.SetActive(false);
+        gaHighscore.SetActive(false);
+        textMoveUp.SetTrigger("start");
+        StartCoroutine(Delay2(0.25f));
     }
 
     IEnumerator Delay2(float time)
     {      
         yield return new WaitForSeconds(time);
         Destroy(cameraMove);
-        panelStart.SetActive(false);
-        gaLevel.SetActive(false);
-        gaHighscore.SetActive(false);
-        textMoveUp.SetTrigger("start");
         BallController.StartBallMovement();
     }
 
