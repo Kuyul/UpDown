@@ -129,4 +129,8 @@ public class GameControl : MonoBehaviour {
     {
         PlayerPrefs.SetInt("continuescore", 0);
     }
+
+    public void ResetPlayerPrefs(){
+        PlayerPrefs.DeleteAll();
+    }
 }
