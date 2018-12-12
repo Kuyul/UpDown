@@ -14,6 +14,9 @@ public class BallController : MonoBehaviour {
     public GameObject peFire;
     public GameObject trail;
     public GameObject CollectablePE;
+    public GameObject Canvas;
+    public GameObject AddScoreTextBottom;
+    public GameObject AddScoreTextTop;
 
     //Declare private variables
     private float OriginalChangeSpeed;
@@ -218,21 +221,21 @@ public class BallController : MonoBehaviour {
     }
 
     public void JumpUp(){
-
-
     }
 
     public void JumpDown(){
-
-
     }
 
     public void ReachedTop(){
         GameControl.Instance.IncrementScore();
+        var a = Instantiate(AddScoreTextTop, Canvas.GetComponent<RectTransform>());
+        Destroy(a, 0.8f);
     }
 
     public void ReachedBottom(){
         GameControl.Instance.IncrementScore();
+        var a = Instantiate(AddScoreTextTop, Canvas.GetComponent<RectTransform>());
+        Destroy(a, 0.8f);
     }
 
     public void StartBallMovement()

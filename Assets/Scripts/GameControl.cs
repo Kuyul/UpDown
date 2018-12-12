@@ -43,9 +43,10 @@ public class GameControl : MonoBehaviour {
         var level = LevelControl.Instance.GetSpeedLevel();
         var speed = (level + 1) * 15;
         BallController.speed = speed;
+        BallController.speedUpDown = speed / 12 * 8;
         PlatformControl.HeightOffset = speed;
         PlatformControl.LengthOffset = speed * 2;
-        BallController.heightChangeSpeed = speed * 3;
+        BallController.heightChangeSpeed = speed * 2.5f;
         PlatformControl.NumPlatforms = (level - 1) / 2 + 2;
         Debug.Log("Level is: " + level);
 	}
