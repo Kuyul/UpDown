@@ -20,6 +20,8 @@ public class GameControl : MonoBehaviour {
     public GameObject gaLevel;
     public GameObject gaHighscore;
     public GameObject peDeath;
+    public GameObject ScoreAdd;
+    public GameObject Canvas;
 
     public Animator textMoveUp;
     public Animator cameraMove;
@@ -135,6 +137,9 @@ public class GameControl : MonoBehaviour {
     {
         currentScore = currentScore + PlayerPrefs.GetInt("level", 1);
         textCurrentscore.text = currentScore.ToString();
+        var a = Instantiate(ScoreAdd, Canvas.GetComponent<RectTransform>());
+        a.GetComponent<Text>().text = "+" + PlayerPrefs.GetInt("level", 1);
+        Destroy(a, 0.8f);
 
         if (currentScore > PlayerPrefs.GetInt("highscore", 0))
         {

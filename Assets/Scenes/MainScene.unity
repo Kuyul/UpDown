@@ -5476,11 +5476,6 @@ MonoBehaviour:
   trail: {fileID: 2057325830}
   CollectablePE: {fileID: 1593781102100972, guid: c5e980f54fd05dd49a7c2618563f95e6,
     type: 2}
-  Canvas: {fileID: 185810224}
-  AddScoreTextBottom: {fileID: 1697059359987990, guid: 8583c5ed692ac8f42859af58d5aceea0,
-    type: 2}
-  AddScoreTextTop: {fileID: 1697059359987990, guid: 3e54fb01e5ac48740b778e832a128117,
-    type: 2}
 --- !u!1 &454922268
 GameObject:
   m_ObjectHideFlags: 0
@@ -15792,6 +15787,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114568527370721034, guid: 8583c5ed692ac8f42859af58d5aceea0,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114568527370721034, guid: 8583c5ed692ac8f42859af58d5aceea0,
+        type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8583c5ed692ac8f42859af58d5aceea0, type: 2}
   m_IsPrefabAsset: 0
@@ -16728,6 +16733,8 @@ MonoBehaviour:
   gaLevel: {fileID: 1694331781}
   gaHighscore: {fileID: 1495540169}
   peDeath: {fileID: 1593781102100972, guid: 33b478e7f49056348b0ca950b1f6d08a, type: 2}
+  ScoreAdd: {fileID: 1697059359987990, guid: 8583c5ed692ac8f42859af58d5aceea0, type: 2}
+  Canvas: {fileID: 185810224}
   textMoveUp: {fileID: 635857704}
   cameraMove: {fileID: 534669907}
   textLevel: {fileID: 1694331783}

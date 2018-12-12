@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BallController : MonoBehaviour {
 
@@ -14,9 +15,6 @@ public class BallController : MonoBehaviour {
     public GameObject peFire;
     public GameObject trail;
     public GameObject CollectablePE;
-    public GameObject Canvas;
-    public GameObject AddScoreTextBottom;
-    public GameObject AddScoreTextTop;
 
     //Declare private variables
     private float OriginalChangeSpeed;
@@ -228,14 +226,10 @@ public class BallController : MonoBehaviour {
 
     public void ReachedTop(){
         GameControl.Instance.IncrementScore();
-        var a = Instantiate(AddScoreTextTop, Canvas.GetComponent<RectTransform>());
-        Destroy(a, 0.8f);
     }
 
     public void ReachedBottom(){
         GameControl.Instance.IncrementScore();
-        var a = Instantiate(AddScoreTextTop, Canvas.GetComponent<RectTransform>());
-        Destroy(a, 0.8f);
     }
 
     public void StartBallMovement()
