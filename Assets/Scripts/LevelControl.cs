@@ -33,7 +33,7 @@ public class LevelControl : MonoBehaviour
     //Called from GameControl Class
     public int GetSpeedLevel(){
         var lvl = PlayerPrefs.GetInt("SpeedLevel", 1);
-        if(lvl >= 4 && First)
+        if(lvl >= 7 && First)
         {
             lvl -= 2;
             PlayerPrefs.SetInt("SpeedLevel", lvl); //After gameover or restart we want the user to start at a non maximum speed;
