@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using GameAnalyticsSDK;
 
 public class GameControl : MonoBehaviour {
 
@@ -76,6 +77,8 @@ public class GameControl : MonoBehaviour {
 
         textCurrentLev.text = PlayerPrefs.GetInt("level", 1).ToString();
         textNextLev.text = (PlayerPrefs.GetInt("level", 1)+1).ToString();
+        GameAnalytics.Initialize();
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "game");
     }
 
     private void Update()
@@ -96,6 +99,7 @@ public class GameControl : MonoBehaviour {
         LevelControl.Instance.ResetSpeed();
         Instantiate(peDeath, BallController.gameObject.transform.position, Quaternion.identity);
         StartCoroutine(Delay(1f));
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "game", currentScore);
     }
 
     IEnumerator Delay(float time)
@@ -159,6 +163,7 @@ public class GameControl : MonoBehaviour {
 
         PlayerPrefs.SetInt("continuescore", currentScore); // score to start from when you complete level
         LevelControl.Instance.AddSpeedLevel();
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "game", currentScore);
     }
 
     private void OnApplicationQuit()
